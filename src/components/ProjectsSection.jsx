@@ -8,7 +8,7 @@ const projects = [
     image: "/projects/project1.png",
     tags: ["React", "TailwindCSS", "Supabase"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Mayank1094",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const projects = [
     image: "/projects/project2.png",
     tags: ["TypeScript", "D3.js", "Next.js"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Mayank1094",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const projects = [
     image: "/projects/project3.png",
     tags: ["React", "Node.js", "Stripe"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Mayank1094",
   },
 ];
 
@@ -100,7 +100,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
-            href="https://github.com/machadop1407"
+            href="https://github.com/Mayank1094"
           >
             Check My Github <ArrowRight size={16} />
           </a>

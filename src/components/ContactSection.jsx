@@ -94,7 +94,7 @@ export const ContactSection = () => {
               <h4 className="font-medium mb-4"> Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
                 <a href="#" target="_blank">
-                  <Whatsapp />
+                  <Linkedin />
                 </a>
                 <a href="#" target="_blank">
                   <Twitter />

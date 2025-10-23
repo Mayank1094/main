@@ -24,7 +24,7 @@ export const ContactSection = () => {
     setTimeout(() => {
       toast({
         title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        description: "Thank photo for your message. I'll get back to you soon.",
       });
       setIsSubmitting(false);
     }, 1500);
@@ -44,15 +44,19 @@ export const ContactSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-8">
             <h3 className="text-2xl font-semibold mb-6">
-              {" "}
               Contact Information
             </h3>
 
             <div className="space-y-6 justify-center">
               <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />{" "}
-                </div>
+                <a 
+                  href="mailto:mayankkamble1094@gmail.com"
+                  className="hover:opacity-80 transition-opacity"
+                >
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <Mail className="h-6 w-6 text-primary" />
+                  </div>
+                </a>
                 <div>
                   <h4 className="font-medium"> Email</h4>
                   <a
@@ -63,10 +67,16 @@ export const ContactSection = () => {
                   </a>
                 </div>
               </div>
+              
               <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />{" "}
-                </div>
+                <a 
+                  href="tel:+916361536052"
+                  className="hover:opacity-80 transition-opacity"
+                >
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <Phone className="h-6 w-6 text-primary" />
+                  </div>
+                </a>
                 <div>
                   <h4 className="font-medium"> Phone</h4>
                   <a
@@ -77,13 +87,33 @@ export const ContactSection = () => {
                   </a>
                 </div>
               </div>
+              
               <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />{" "}
-                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Lakshmeshwar,Ankola"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
+                >
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <MapPin className="h-6 w-6 text-primary" />
+                  </div>
+                </a>
                 <div>
-                  <h4 className="font-medium"> Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Lakshmeshwar,Ankola"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block font-medium hover:text-primary transition-colors"
+                  >
+                    Location
+                  </a>
+                  <a 
+                    href="https://www.google.com/maps/search/?api=1&query=Lakshmeshwar,Ankola"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Lakshmeshwar,Ankola
                   </a>
                 </div>
@@ -93,17 +123,17 @@ export const ContactSection = () => {
             <div className="pt-8">
               <h4 className="font-medium mb-4"> Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
-                <a href="#" target="_blank">
-                  <Linkedin />
+                <a href="#" target="_blank" className="group transition-colors">
+                  <Linkedin className="text-muted-foreground group-hover:text-primary transition-colors" />
                 </a>
-                <a href="#" target="_blank">
-                  <Twitter />
+                <a href="#" target="_blank" className="group transition-colors">
+                  <Twitter className="text-muted-foreground group-hover:text-primary transition-colors" />
                 </a>
-                <a href="#" target="_blank">
-                  <Instagram />
+                <a href="#" target="_blank" className="group transition-colors">
+                  <Instagram className="text-muted-foreground group-hover:text-primary transition-colors" />
                 </a>
-                <a href="#" target="_blank">
-                  <Twitch />
+                <a href="#" target="_blank" className="group transition-colors">
+                  <Twitch className="text-muted-foreground group-hover:text-primary transition-colors" />
                 </a>
               </div>
             </div>
@@ -121,7 +151,6 @@ export const ContactSection = () => {
                   htmlFor="name"
                   className="block text-sm font-medium mb-2"
                 >
-                  {" "}
                   Your Name
                 </label>
                 <input
@@ -139,7 +168,6 @@ export const ContactSection = () => {
                   htmlFor="email"
                   className="block text-sm font-medium mb-2"
                 >
-                  {" "}
                   Your Email
                 </label>
                 <input
@@ -157,7 +185,6 @@ export const ContactSection = () => {
                   htmlFor="message"
                   className="block text-sm font-medium mb-2"
                 >
-                  {" "}
                   Your Message
                 </label>
                 <textarea

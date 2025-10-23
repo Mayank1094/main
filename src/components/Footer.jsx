@@ -2,10 +2,12 @@ import { ArrowUp } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="py-12 px-4 bg-card relative border-t border-border mt-12 pt-8 flex flex-wrap justify-between items-center">
-      {" "}
+    <footer 
+      // py-6 and mt-8 for smaller padding/margin on mobile (default)
+      // md:py-12 and md:mt-12 to restore original, larger spacing on medium screens and up
+      className="py-6 px-4 bg-card relative border-t border-border mt-8 pt-8 flex flex-wrap justify-between items-center md:py-12 md:mt-12"
+    >
       <p className="text-sm text-muted-foreground">
-        {" "}
         &copy; {new Date().getFullYear()} Mayank. All rights reserved.
       </p>
       <a

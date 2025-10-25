@@ -16,6 +16,7 @@ export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // 🐛 FIX 2: Correctly attached onSubmit to the <form> element below
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -24,7 +25,8 @@ export const ContactSection = () => {
     setTimeout(() => {
       toast({
         title: "Message sent!",
-        description: "Thank photo for your message. I'll get back to you soon.",
+        // 🐛 FIX 3: Corrected typo from "Thank photo" to "Thank you"
+        description: "Thank you for your message. I'll get back to you soon.",
       });
       setIsSubmitting(false);
     }, 1500);
@@ -90,7 +92,8 @@ export const ContactSection = () => {
               
               <div className="flex items-start space-x-4">
                 <a
-                  href="https://mayank13ai.vercel.app/
+                  // 🐛 FIX 1: Corrected syntax error by adding closing quote to href
+                  href="https://mayank13ai.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-80 transition-opacity"
@@ -101,7 +104,8 @@ export const ContactSection = () => {
                 </a>
                 <div>
                   <a
-                    href="https://mayank13ai.vercel.app/
+                    // 🐛 FIX 1: Corrected syntax error by adding closing quote to href
+                    href="https://mayank13ai.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block font-medium hover:text-primary transition-colors"
@@ -109,7 +113,8 @@ export const ContactSection = () => {
                     AI
                   </a>
                   <a 
-                    href="https://mayank13ai.vercel.app/
+                    // 🐛 FIX 1: Corrected syntax error by adding closing quote to href
+                    href="https://mayank13ai.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -140,12 +145,13 @@ export const ContactSection = () => {
           </div>
 
           <div
+            // 🐛 FIX 2: Removed onSubmit from the parent <div>
             className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
           >
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
 
-            <form className="space-y-6">
+            {/* 🐛 FIX 2: Correctly added onSubmit={handleSubmit} to the <form> element */}
+            <form className="space-y-6" onSubmit={handleSubmit}> 
               <div>
                 <label
                   htmlFor="name"

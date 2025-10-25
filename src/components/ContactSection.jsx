@@ -90,31 +90,31 @@ export const ContactSection = () => {
               
               <div className="flex items-start space-x-4">
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Lakshmeshwar,Ankola"
+                  href="https://mayank13ai.vercel.app/
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-80 transition-opacity"
                 >
                   <div className="p-3 rounded-full bg-primary/10">
-                    <MapPin className="h-6 w-6 text-primary" />
+                    <Send className="h-6 w-6 text-primary" />
                   </div>
                 </a>
                 <div>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=Lakshmeshwar,Ankola"
+                    href="https://mayank13ai.vercel.app/
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block font-medium hover:text-primary transition-colors"
                   >
-                    Location
+                    AI
                   </a>
                   <a 
-                    href="https://www.google.com/maps/search/?api=1&query=Lakshmeshwar,Ankola"
+                    href="https://mayank13ai.vercel.app/
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    Lakshmeshwar,Ankola
+                    Chat Box
                   </a>
                 </div>
               </div>

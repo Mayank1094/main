@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Menu, X, Moon } from "lucide-react"; // Added Moon for the placeholder icon
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navItems = [
@@ -13,36 +13,31 @@ const navItems = [
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // Assuming you have a dark mode state, using a simple placeholder here
-  const [isDarkMode, setIsDarkMode] = useState(true); 
 
   useEffect(() => {
     const handleScroll = () => {
-      // FIX 1: Use window.scrollY for proper scroll detection on all devices
+      // Fix: Use window.scrollY for scroll detection
       setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
+
   return (
     <nav
       className={cn(
         "fixed w-full z-40 transition-all duration-300",
-        // Scroll effect for the main navbar
         isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
       )}
     >
       <div className="container flex items-center justify-between">
-        {/* Logo/Portfolio Link */}
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="#hero"
         >
           <span className="relative z-10">
-            <span className="text-glow text-foreground"> </span>{" "}
-            Portfolio
+            <span className="text-glow text-foreground"> </span> Portfolio
           </span>
         </a>
 
@@ -59,36 +54,20 @@ export const Navbar = () => {
           ))}
         </div>
 
-        {/* FIX 2: Grouping the mobile buttons to maintain vertical alignment */}
-        <div className="flex items-center md:hidden"> 
-            
-            {/* Theme Toggle Button Placeholder (Your actual toggle code should replace this) */}
-            <button
-                onClick={() => setIsDarkMode(prev => !prev)}
-                className="p-2 text-foreground z-50 mr-2 rounded-full hover:bg-foreground/10 transition-colors" 
-                aria-label="Toggle Theme"
-            >
-                {/* Using a Moon icon as a visual placeholder for the toggle */}
-                <Moon size={20} /> 
-            </button>
+        {/* mobile nav toggle button (FIXED for consistent vertical alignment) */}
+        <button
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+          // Removed 'mr-2' to rely on parent flex container for alignment.
+          // The 'items-center' on the parent div handles vertical centering.
+          className="md:hidden p-2 text-foreground z-50"
+          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+        </button>
 
-
-            {/* mobile menu button (Hamburger/X) */}
-            <button
-                onClick={() => setIsMenuOpen((prev) => !prev)}
-                className="p-2 text-foreground z-50"
-                aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-            >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
-            </button>
-        </div>
-
-
-        {/* mobile nav overlay */}
+        {/* mobile menu overlay */}
         <div
           className={cn(
-            // FIX 3: Added h-screen for full viewport coverage
-            // FIX 4: Restored original transparency (bg-background/95)
             "fixed inset-0 h-screen bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
             "transition-all duration-300 md:hidden",
             isMenuOpen

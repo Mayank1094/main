@@ -16,7 +16,6 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Fix: Use window.scrollY for scroll detection
       setIsScrolled(window.scrollY > 10);
     };
 
@@ -57,9 +56,8 @@ export const Navbar = () => {
         {/* mobile nav toggle button (FIXED for consistent vertical alignment) */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          // Removed 'mr-2' to rely on parent flex container for alignment.
-          // The 'items-center' on the parent div handles vertical centering.
-          className="md:hidden p-2 text-foreground z-50"
+          // Applied flex and explicit sizing to ensure the icon aligns perfectly with the logo text.
+          className="md:hidden text-foreground z-50 flex items-center justify-center h-8 w-8" 
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}

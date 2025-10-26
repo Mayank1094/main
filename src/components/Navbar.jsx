@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+// Added Sun and Moon for the Dark Mode Toggle
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navItems = [
@@ -13,6 +14,8 @@ const navItems = [
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Placeholder state for theme, assuming you have this logic elsewhere
+  const [isDarkMode, setIsDarkMode] = useState(true); 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +25,12 @@ export const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handler for the placeholder theme toggle
+  const toggleTheme = () => {
+      // In a real app, this would change Tailwind/CSS theme classes or context
+      setIsDarkMode(prev => !prev);
+  }
 
   return (
     <nav
@@ -52,16 +61,31 @@ export const Navbar = () => {
             </a>
           ))}
         </div>
+        
+        {/* Buttons Grouping (FIXED: ensures vertical alignment) */}
+        <div className="flex items-center space-x-2"> 
+          
+          {/* Dark Mode Toggle Button (FIXED STYLING) */}
+          <button
+            onClick={toggleTheme}
+            // Key to alignment: consistent height/width and centering
+            className="text-foreground z-50 flex items-center justify-center h-8 w-8 transition-colors duration-300 hover:text-primary"
+            aria-label={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          >
+            {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}{" "}
+          </button>
 
-        {/* mobile nav toggle button (FIXED for consistent vertical alignment) */}
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          // Applied flex and explicit sizing to ensure the icon aligns perfectly with the logo text.
-          className="md:hidden text-foreground z-50 flex items-center justify-center h-8 w-8" 
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
-        </button>
+          {/* mobile menu toggle button (FIXED STYLING) */}
+          <button
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            // Key to alignment: consistent height/width and centering
+            className="md:hidden text-foreground z-50 flex items-center justify-center h-8 w-8" 
+            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+          </button>
+        </div>
+
 
         {/* mobile menu overlay */}
         <div

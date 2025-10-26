@@ -16,7 +16,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // FIX 1 (from previous step): Ensures scroll detection works on mobile
+      // Fix 1: Use window.scrollY for scroll detection
       setIsScrolled(window.scrollY > 10);
     };
 
@@ -67,9 +67,10 @@ export const Navbar = () => {
 
         <div
           className={cn(
-            // FIX 2 & 3: Using solid 'bg-background' to prevent content overlap and 
-            // fixed the 'backdroup' typo from the previous step.
-            "fixed inset-0 bg-background backdrop-blur-md z-40 flex flex-col items-center justify-center",
+            // FINAL FIX: Added h-screen to ensure the menu covers the entire viewport, 
+            // preventing content bleed-through. Also using solid 'bg-background' and 
+            // correct 'backdrop-blur-md'.
+            "fixed inset-0 h-screen bg-background backdrop-blur-md z-40 flex flex-col items-center justify-center",
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
